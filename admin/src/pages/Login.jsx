@@ -38,7 +38,6 @@ const Login = () => {
         if (data.success) {
           localStorage.setItem("dToken", data.token);
           setDToken(data.token);
-          console.log(data.token);
           toast.success(data.message);
         } else {
           toast.error(data.message);

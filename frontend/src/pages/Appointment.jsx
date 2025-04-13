@@ -118,9 +118,6 @@ const Appointment = () => {
   useEffect(() => {
     getAvilableSlots();
   }, [docInfo]);
-  useEffect(() => {
-    console.log(docSlots);
-  }, [docSlots]);
 
   return (
     docInfo && (
