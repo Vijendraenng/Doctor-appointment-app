@@ -73,6 +73,10 @@ const Dashboard = () => {
                 </div>
                 {data.cancelled ? (
                   <p className=" text-red-400 text-xs font-medium">Cancelled</p>
+                ) : data.isCompleted ? (
+                  <p className=" text-green-400 text-xs font-medium">
+                    Completed
+                  </p>
                 ) : (
                   <img
                     onClick={() => {

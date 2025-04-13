@@ -1,9 +1,14 @@
 import express from "express";
 import {
+  bookAppointment,
+  cancelAppointment,
   getProfile,
+  listAppointment,
   loginUser,
+  paymentRazorpay,
   registerUser,
   updateProfile,
+  verifyRazorpay,
 } from "../controllers/userController.js";
 import authUser from "../middleware/authUser.js";
 import upload from "../middleware/multer.js";
@@ -19,5 +24,9 @@ userRouter.post(
   authUser,
   updateProfile
 );
-
+userRouter.post("/book-appointment", authUser, bookAppointment);
+userRouter.get("/my-appointments", authUser, listAppointment);
+userRouter.post("/cancel-appointment", authUser, cancelAppointment);
+userRouter.post("/payment-razorpay", authUser, paymentRazorpay);
+userRouter.post("/verifyRazorpay", authUser, verifyRazorpay);
 export default userRouter;
