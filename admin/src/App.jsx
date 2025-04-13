@@ -10,9 +10,9 @@ import DoctorsList from "./pages/Admin/DoctorsList";
 import AddDoctors from "./pages/Admin/AddDoctors";
 import { DoctorContext } from "./context/DoctorContext";
 import Login from "./pages/Login";
-import DoctorDashboard from "./pages/Doctor/doctorDashboard";
-import DoctorAppointment from "./pages/Doctor/doctorAppointment";
-import DoctorProfile from "./pages/Doctor/doctorProfile";
+import DoctorDashboard from "./pages/Doctor/DoctorDashboard";
+import DoctorAppointment from "./pages/Doctor/DoctorAppointment";
+import DoctorProfile from "./pages/Doctor/DoctorProfile";
 
 const App = () => {
   const { aToken } = useContext(AdminContext);
