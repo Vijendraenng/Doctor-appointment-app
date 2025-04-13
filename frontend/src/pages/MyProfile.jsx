@@ -8,10 +8,14 @@ const MyProfile = () => {
   const { userData, setUserData, token, backendUrl, loadUserProfileData } =
     useContext(AppContext);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [isEdit, setIsEdit] = useState(false);
   const [image, setImage] = useState(false);
 
   const updateUserProfileData = async () => {
+    if (isSubmitting) return; // ✅ Prevent duplicate submission
+    setIsSubmitting(true);
     try {
       const formData = new FormData();
       formData.append("name", userData.name);
@@ -37,6 +41,8 @@ const MyProfile = () => {
       console.log(error);
 
       toast.error(error.message);
+    } finally {
+      setIsSubmitting(false); // ✅ Re-enable button after request
     }
   };
 
@@ -53,7 +59,7 @@ const MyProfile = () => {
               />
               <img
                 className="w-10 absolute bottom-12 right-12"
-                src={image ? "" : assets.upload_icon}
+                src={image ? null : assets.upload_icon}
                 alt=""
               />
             </div>
@@ -201,8 +207,9 @@ const MyProfile = () => {
             <button
               className="border border-[#5F6FFF] px-8 py-2 rounded-full hover:bg-[#5F6FFF] hover:text-white transition-all"
               onClick={updateUserProfileData}
+              disabled={isSubmitting} // ✅ disable while submitting
             >
-              Save information
+              {isSubmitting ? "Saving..." : "Save information"}
             </button>
           ) : (
             <button

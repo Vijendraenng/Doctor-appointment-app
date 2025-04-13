@@ -188,7 +188,6 @@ const AddDoctors = () => {
                 value={speciality}
                 className="border rounded px-3 py-2"
                 name=""
-                id=""
               >
                 <option value="General physician">General physician</option>
                 <option value="Gynecologist"> Gynecologist</option>

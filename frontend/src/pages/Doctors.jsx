@@ -124,10 +124,17 @@ const Doctors = () => {
             >
               <img className=" bg-[#C9D8FF] " src={data.image} alt="" />
               <div className="p-4">
-                <div className="flex items-center gap-2 text-sm text-center text-green-400">
-                  <p className="w-2 h-2 bg-green-400 rounded-full"></p>
-                  <p>Avilable</p>
-                </div>
+                {data.avilable ? (
+                  <div className="flex items-center gap-2 text-sm text-center text-green-400">
+                    <p className="w-2 h-2 bg-green-400 rounded-full"></p>
+                    <p>Avilable</p>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2 text-sm text-center text-red-400">
+                    <p className="w-2 h-2 bg-red-400 rounded-full"></p>
+                    <p>Not Avilable</p>
+                  </div>
+                )}
                 <p className="text-gray-900 text-lg font-medium">
                   {" "}
                   {data.name}
