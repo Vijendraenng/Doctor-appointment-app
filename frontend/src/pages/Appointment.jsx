@@ -206,7 +206,7 @@ const Appointment = () => {
             onClick={bookAppointment}
             className=" bg-[#5F6FFF] text-white my-6 text-sm font-light px-14 py-3 rounded-full"
           >
-            Book an appointmen
+            Book an appointment
           </button>
         </div>
         {/* listing related doctors */}
